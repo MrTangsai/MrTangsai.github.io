@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+       | 格物 致知 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="唐 赛">
+    
+    
+
+    <meta name="description" content="安装TensorFlow分为CPU和GPU两个版本，如果系统没有NVIDIA® GPU，就安装CPU版本，GPU版本的TensorFlow计算速度更快，如果满足以下要求，可以安装GPU版本  CUDA® Toolkit 8.0. CUDA™是一种由NVIDIA推出的通用并行计算架构，该架构使GPU能够解决复杂的计算问题。它包含了CUDA指令集架构（ISA）以及GPU内部的并行计算引擎。CUDA®">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" | 格物 致知">
+<meta property="og:url" content="http://yoursite.com/2018/05/28/tensorflow1/index.html">
+<meta property="og:site_name" content="格物 致知">
+<meta property="og:description" content="安装TensorFlow分为CPU和GPU两个版本，如果系统没有NVIDIA® GPU，就安装CPU版本，GPU版本的TensorFlow计算速度更快，如果满足以下要求，可以安装GPU版本  CUDA® Toolkit 8.0. CUDA™是一种由NVIDIA推出的通用并行计算架构，该架构使GPU能够解决复杂的计算问题。它包含了CUDA指令集架构（ISA）以及GPU内部的并行计算引擎。CUDA®">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://www.tensorflow.org/images/getting_started_add.png">
+<meta property="og:image" content="https://www.tensorflow.org/images/getting_started_adder.png">
+<meta property="og:image" content="https://www.tensorflow.org/images/getting_started_triple.png">
+<meta property="og:updated_time" content="2017-05-31T02:27:18.987Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" | 格物 致知">
+<meta name="twitter:description" content="安装TensorFlow分为CPU和GPU两个版本，如果系统没有NVIDIA® GPU，就安装CPU版本，GPU版本的TensorFlow计算速度更快，如果满足以下要求，可以安装GPU版本  CUDA® Toolkit 8.0. CUDA™是一种由NVIDIA推出的通用并行计算架构，该架构使GPU能够解决复杂的计算问题。它包含了CUDA指令集架构（ISA）以及GPU内部的并行计算引擎。CUDA®">
+<meta name="twitter:image" content="https://www.tensorflow.org/images/getting_started_add.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">格物 致知</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title"></h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-05-28" class="post-meta__date date">2018-05-28</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>TensorFlow分为CPU和GPU两个版本，如果系统没有NVIDIA® GPU，就安装CPU版本，GPU版本的TensorFlow计算速度更快，如果满足以下要求，可以安装GPU版本</p>
+<ul>
+<li>CUDA® Toolkit 8.0. CUDA™是一种由NVIDIA推出的通用并行计算架构，该架构使GPU能够解决复杂的计算问题。它包含了CUDA指令集架构（ISA）以及GPU内部的并行计算引擎。CUDA® Toolkit是一种针对支持CUDA功能的GPU（图形处理器）的C语言开发环境。</li>
+<li>CUDA® Toolkit 8.0的NVIDIA驱动</li>
+<li>cuDNN v5.1.是用于深度神经网络的GPU加速库</li>
+<li>显卡的CUDA计算能力在3.0以上<h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2></li>
+<li>pip<br>原生pip直接安装TensorFlow而不需要通过虚拟环境，因此pip安装的TensorFlow存放于其他python库的路径，并且，可以在计算机的任何路径下运行TensorFlow<br>python3.5版本里，安装CPU版本在命令提示符中键入pip install –upgrade tensorflow，安装GPU版本键入pip install –upgrade tensorflow-gpu<br><em>截止17年5月TensorFlow还不支持在python3.6中pip安装</em></li>
+<li>Anaconda<br>可以用conda指令创建虚拟环境，但是推荐使用在anaconda下pip install.创建TensorFlow环境安装，TensorFlow库存在于创建的虚拟环境中，运行时有所限制。</li>
+</ul>
+<h1 id="TensorFlow起步"><a href="#TensorFlow起步" class="headerlink" title="TensorFlow起步"></a>TensorFlow起步</h1><p>起步前的准备工作：python的编程基础、矩阵的简单数学知识、机器学习</p>
+<p>TensorFlow提供多种API。底层API(TensorFlow Core)提供完整的程序控制。高级API建立在core之上，高级API更加容易学习应用。像tf.contrib.learn帮助你管理数据集，学习器，训练和推断。<em>注意名字中包含contrib的高级API还在开发当中，在以后的版本可能会改变或者废弃。</em></p>
+<p>指南先介绍底层API，之后会用tf.contrib.learn来得到相同的模型。了解core可以更加了解在高级API使用中的内部运行机制。</p>
+<h2 id="Tensors"><a href="#Tensors" class="headerlink" title="Tensors"></a>Tensors</h2><p>TensorFlow的数据核心单元是tensor(张量)。可以把张量想象成一个n维的数组或列表。张量的rank(秩)就是维度的数量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 # a rank 0 tensor; this is a scalar with shape []</span><br><span class="line">[1. ,2., 3.] # a rank 1 tensor; this is a vector with shape [3]</span><br><span class="line">[[1., 2., 3.], [4., 5., 6.]] # a rank 2 tensor; a matrix with shape [2, 3]</span><br><span class="line">[[[1., 2., 3.]], [[7., 8., 9.]]] # a rank 3 tensor with shape [2, 1, 3]</span><br></pre></td></tr></table></figure></p>
+<h2 id="TensorFlow-Core"><a href="#TensorFlow-Core" class="headerlink" title="TensorFlow Core"></a>TensorFlow Core</h2><p>导入TensorFlow的所有类、方法和属性：<figure class="highlight plain"><figcaption><span>tensorflow as tf```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## the computational graph(计算图)</span><br><span class="line">你可以认为TensorFlow核心代码有两部分组成：</span><br><span class="line">1. 构建计算图</span><br><span class="line">2. 执行计算图</span><br><span class="line">计算图是由TensorFlow operation(节点)组成。让我们构建一个简单的计算图。每个节点有0或更多张量作为输入然后产生一个张量作为输出。有一类节点是常量。所有的TensorFlow常量没有输入，它输出一个值在内部存储。我们创建两个浮点型常量node1和node2如下：</span><br></pre></td></tr></table></figure></p>
+<p>node1 = tf.constant(3.0, tf.float32)<br>node2 = tf.constant(4.0) # also tf.float32 implicitly<br>print(node1, node2)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">打印结果</span><br></pre></td></tr></table></figure></p>
+<p>Tensor(“Const:0”, shape=(), dtype=float32) Tensor(“Const_1:0”, shape=(), dtype=float32)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注意：打印node并没有输出3.0和4.0，而是node的本身属性，在被计算的时候才会产生3.0和4.0，为了正确计算节点，我们必须在对话(session)中执行计算图。session压缩了控制和TensorFlow的状态。</span><br><span class="line"></span><br><span class="line">接下来的代码构造了session对象并用它的方法run执行足够的计算图来计算node1和node2：</span><br></pre></td></tr></table></figure></p>
+<p>sess = tf.Session()<br>print(sess.run([node1, node2]))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">于是我们可以看到期望的输出</span><br><span class="line">```[3.0, 4.0]</span><br></pre></td></tr></table></figure></p>
+<p>我们可以组合张量节点来构造更复杂的计算，比如，我们可以使两个常量节点相加来产生新的图形：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node3 = tf.add(node1, node2)</span><br><span class="line">print(&quot;node3: &quot;, node3)</span><br><span class="line">print(&quot;sess.run(node3): &quot;,sess.run(node3))</span><br></pre></td></tr></table></figure></p>
+<p>最后打印出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node3:  Tensor(&quot;Add_2:0&quot;, shape=(), dtype=float32)</span><br><span class="line">sess.run(node3):  7.0</span><br></pre></td></tr></table></figure></p>
+<p>TensorFlow提供TensorBoard使计算图可视化。</p>
+<p><img src="https://www.tensorflow.org/images/getting_started_add.png" alt="TensorBoard可视化的效果"></p>
+<p>这个图形并不完美因为它总是产生常量结果。计算图应该接受外部输入变得参数化。placeholders(占位符)可以在之后提供值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = tf.placeholder(tf.float32)</span><br><span class="line">b = tf.placeholder(tf.float32)</span><br><span class="line">adder_node = a + b  # + provides a shortcut for tf.add(a, b)</span><br></pre></td></tr></table></figure></p>
+<p>上面三行代码有点像我们定义两个输入参数和关于这两个参数的节点的函数或匿名函数。我们可以用feed_dict参数来指定提供具体值的张量给这些placeholders来计算多输入的计算图。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(sess.run(adder_node, &#123;a: 3, b:4.5&#125;))</span><br><span class="line">print(sess.run(adder_node, &#123;a: [1,3], b: [2, 4]&#125;))</span><br></pre></td></tr></table></figure></p>
+<p>得到结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">7.5</span><br><span class="line">[ 3.  7.]</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://www.tensorflow.org/images/getting_started_adder.png" alt="在TensorBoard中的图形显示"></p>
+<p>我们可以通过增加另一个节点使计算图更加复杂<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add_and_triple = adder_node * 3.</span><br><span class="line">print(sess.run(add_and_triple, &#123;a: 3, b:4.5&#125;))</span><br></pre></td></tr></table></figure></p>
+<p>产生输出22.5</p>
+<p><img src="https://www.tensorflow.org/images/getting_started_triple.png" alt="在TensorBoard中的图形显示"></p>
+<p>在机器学习中，我们通常需要任意输入，为了使模型可训练，我们需要修改模型使在相同输入下得到新的输出。Variables(变量)允许我们在计算图中增加训练的参数。可由类型和初始值构造：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">W = tf.Variable([.3], tf.float32)</span><br><span class="line">b = tf.Variable([-.3], tf.float32)</span><br><span class="line">x = tf.placeholder(tf.float32)</span><br><span class="line">linear_model = W * x + b</span><br></pre></td></tr></table></figure></p>
+<p>当你调用tf.constant时，常量已经初始化了，他们的值不会再改变，相反，当你调用tf.Variable时，变量并没有初始化，为了在TensorFlow代码中初始化所有变量，你必须调用一个特别的节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">init = tf.global_variables_initializer()</span><br><span class="line">sess.run(init)</span><br></pre></td></tr></table></figure></p>
+<p>实现init是TensorFlow子计算图初始所有全局变量的关键。在我们调用sess.run之前，变量是为初始化的。</p>
+<p>区别：</p>
+<p>tf.Variable:训练模型时用于更新存储参数，声明时必须提供初始值</p>
+<p>tf.placeholder:用于得到传递进来的真实的训练样本，不必指定初始值，可在运行时，通过Session.run的函数的feed_dict参数指定</p>
+<p>既然x是placeholder，我们可以训练linear_model来同时计算x的几个值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(sess.run(linear_model, &#123;x:[1,2,3,4]&#125;))</span><br></pre></td></tr></table></figure></p>
+<p>得到输出<br><figure class="highlight plain"><figcaption><span>0.          0.30000001  0.60000002  0.90000004]```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我们构造了一个模型但并不知道他的性能。为了在训练集上评估模型，我们需要一个y placeholder来提供期望值，和一个loss funciton(代价函数)</span><br><span class="line"></span><br><span class="line">代价函数表征了当前模型与提供数据的距离。我们将在线性回归上用一个标准的代价函数，即当前模型与提供数据的delta的平方和。linear_model-y构造了一个向量，它的每个元素即使样本的误差delta。然后调用tf.square来平方误差，然后调用tf.reduce_sum使所有平方误差相加来构造一个标量来抽象所有样本的误差。</span><br></pre></td></tr></table></figure></p>
+<p>y = tf.placeholder(tf.float32)<br>squared_deltas = tf.square(linear_model - y)<br>loss = tf.reduce_sum(squared_deltas)<br>print(sess.run(loss, {x:[1,2,3,4], y:[0,-1,-2,-3]}))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">产生代价值23.66</span><br><span class="line"></span><br><span class="line">我们可以给w、b重新分配值-1，1来提升性能，变量通过tf.Variable来对值初始化，通过tf.assign来改变节点。比如，w=-1,b=1使我们的优化参数。</span><br></pre></td></tr></table></figure></p>
+<p>fixW = tf.assign(W, [-1.])<br>fixb = tf.assign(b, [1.])<br>sess.run([fixW, fixb])<br>print(sess.run(loss, {x:[1,2,3,4], y:[0,-1,-2,-3]}))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">最终打印出代价为0</span><br><span class="line"></span><br><span class="line">我们只是猜想得到理想的w和b的值，但机器学习的目的就是要自动找出理想的模型参数。我们将在下一节介绍</span><br><span class="line"></span><br><span class="line">## tf.train API</span><br><span class="line">关于机器学习完整的讨论超出了这里的范围，无论如何，TensorFlow提供了optimizers(优化器)使每个变量朝着代价函数最小化的方向缓慢改变。最简单的优化器是gradient descent(梯度下降)。它使每个变量都朝代价关于变量的梯度的方向变化。通常上讲，手动计算符号化的导数是乏味且易于出错的。TensorFlow使用函数tf.gradients可以自动产生导数。优化器通常会直接完成这一步骤，比如</span><br></pre></td></tr></table></figure></p>
+<p>optimizer = tf.train.GradientDescentOptimizer(0.01)<br>train = optimizer.minimize(loss)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">sess.run(init) # reset values to incorrect defaults.</span><br><span class="line">for i in range(1000):</span><br><span class="line">  sess.run(train, &#123;x:[1,2,3,4], y:[0,-1,-2,-3]&#125;)</span><br><span class="line"></span><br><span class="line">print(sess.run([W, b]))</span><br></pre></td></tr></table></figure></p>
+<p>打印出最终的模型参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[array([-0.9999969], dtype=float32), array([ 0.99999082],</span><br><span class="line"> dtype=float32)]</span><br></pre></td></tr></table></figure></p>
+<p> 现在我们已经初步实现了机器学习，即使线性回归并不要求太多的TensorFlow核心代码，越复杂的模型和方法需要更多代码。由此TensorFlow对普遍的模式、结构、函数进行了高级接口。我们将在下一章节学习怎样使用这些接口。</p>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><p> 完整的线性回归模型如下：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> import numpy as np</span><br><span class="line">import tensorflow as tf</span><br><span class="line"></span><br><span class="line"># Model parameters</span><br><span class="line">W = tf.Variable([.3], tf.float32)</span><br><span class="line">b = tf.Variable([-.3], tf.float32)</span><br><span class="line"># Model input and output</span><br><span class="line">x = tf.placeholder(tf.float32)</span><br><span class="line">linear_model = W * x + b</span><br><span class="line">y = tf.placeholder(tf.float32)</span><br><span class="line"># loss</span><br><span class="line">loss = tf.reduce_sum(tf.square(linear_model - y)) # sum of the squares</span><br><span class="line"># optimizer</span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(0.01)</span><br><span class="line">train = optimizer.minimize(loss)</span><br><span class="line"># training data</span><br><span class="line">x_train = [1,2,3,4]</span><br><span class="line">y_train = [0,-1,-2,-3]</span><br><span class="line"># training loop</span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init) # reset values to wrong</span><br><span class="line">for i in range(1000):</span><br><span class="line">  sess.run(train, &#123;x:x_train, y:y_train&#125;)</span><br><span class="line"></span><br><span class="line"># evaluate training accuracy</span><br><span class="line">curr_W, curr_b, curr_loss  = sess.run([W, b, loss], &#123;x:x_train, y:y_train&#125;)</span><br><span class="line">print(&quot;W: %s b: %s loss: %s&quot;%(curr_W, curr_b, curr_loss))</span><br></pre></td></tr></table></figure></p>
+<p>最后产生<figure class="highlight plain"><figcaption><span>[-0.9999969] b: [ 0.99999082] loss: 5.69997e-11```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这样复杂的代码仍可以在tensorboard中可视化</span><br><span class="line"></span><br><span class="line">![在TensorBoard中的图形显示](https://www.tensorflow.org/images/getting_started_final.png)</span><br><span class="line"></span><br><span class="line"># tf.contrib.learn</span><br><span class="line">tf.contrib.learn是TensorFlow中的高级库，简化了机器学习的机制，包括：</span><br><span class="line">* 运行训练的循环</span><br><span class="line">* 运行测试的循环</span><br><span class="line">* 管理数据集</span><br><span class="line">* 管理供应</span><br><span class="line">tf.contrib.learn包括了许多通用模型</span><br><span class="line"></span><br><span class="line">## 基本用法</span><br><span class="line">注意线性回归模型用tf.contrib.learn时有多简洁</span><br></pre></td></tr></table></figure></p>
+<p>import tensorflow as tf</p>
+<h1 id="NumPy-is-often-used-to-load-manipulate-and-preprocess-data"><a href="#NumPy-is-often-used-to-load-manipulate-and-preprocess-data" class="headerlink" title="NumPy is often used to load, manipulate and preprocess data."></a>NumPy is often used to load, manipulate and preprocess data.</h1><p>import numpy as np</p>
+<h1 id="Declare-list-of-features-We-only-have-one-real-valued-feature-There-are-many"><a href="#Declare-list-of-features-We-only-have-one-real-valued-feature-There-are-many" class="headerlink" title="Declare list of features. We only have one real-valued feature. There are many"></a>Declare list of features. We only have one real-valued feature. There are many</h1><h1 id="other-types-of-columns-that-are-more-complicated-and-useful"><a href="#other-types-of-columns-that-are-more-complicated-and-useful" class="headerlink" title="other types of columns that are more complicated and useful."></a>other types of columns that are more complicated and useful.</h1><p>features = [tf.contrib.layers.real_valued_column(“x”, dimension=1)]</p>
+<h1 id="An-estimator-is-the-front-end-to-invoke-training-fitting-and-evaluation"><a href="#An-estimator-is-the-front-end-to-invoke-training-fitting-and-evaluation" class="headerlink" title="An estimator is the front end to invoke training (fitting) and evaluation"></a>An estimator is the front end to invoke training (fitting) and evaluation</h1><h1 id="inference-There-are-many-predefined-types-like-linear-regression"><a href="#inference-There-are-many-predefined-types-like-linear-regression" class="headerlink" title="(inference). There are many predefined types like linear regression,"></a>(inference). There are many predefined types like linear regression,</h1><h1 id="logistic-regression-linear-classification-logistic-classification-and"><a href="#logistic-regression-linear-classification-logistic-classification-and" class="headerlink" title="logistic regression, linear classification, logistic classification, and"></a>logistic regression, linear classification, logistic classification, and</h1><h1 id="many-neural-network-classifiers-and-regressors-The-following-code"><a href="#many-neural-network-classifiers-and-regressors-The-following-code" class="headerlink" title="many neural network classifiers and regressors. The following code"></a>many neural network classifiers and regressors. The following code</h1><h1 id="provides-an-estimator-that-does-linear-regression"><a href="#provides-an-estimator-that-does-linear-regression" class="headerlink" title="provides an estimator that does linear regression."></a>provides an estimator that does linear regression.</h1><p>estimator = tf.contrib.learn.LinearRegressor(feature_columns=features)</p>
+<h1 id="TensorFlow-provides-many-helper-methods-to-read-and-set-up-data-sets"><a href="#TensorFlow-provides-many-helper-methods-to-read-and-set-up-data-sets" class="headerlink" title="TensorFlow provides many helper methods to read and set up data sets."></a>TensorFlow provides many helper methods to read and set up data sets.</h1><h1 id="Here-we-use-numpy-input-fn-We-have-to-tell-the-function-how-many-batches"><a href="#Here-we-use-numpy-input-fn-We-have-to-tell-the-function-how-many-batches" class="headerlink" title="Here we use numpy_input_fn. We have to tell the function how many batches"></a>Here we use <code>numpy_input_fn</code>. We have to tell the function how many batches</h1><h1 id="of-data-num-epochs-we-want-and-how-big-each-batch-should-be"><a href="#of-data-num-epochs-we-want-and-how-big-each-batch-should-be" class="headerlink" title="of data (num_epochs) we want and how big each batch should be."></a>of data (num_epochs) we want and how big each batch should be.</h1><p>x = np.array([1., 2., 3., 4.])<br>y = np.array([0., -1., -2., -3.])<br>input_fn = tf.contrib.learn.io.numpy_input_fn({“x”:x}, y, batch_size=4,<br>                                              num_epochs=1000)</p>
+<h1 id="We-can-invoke-1000-training-steps-by-invoking-the-fit-method-and-passing-the"><a href="#We-can-invoke-1000-training-steps-by-invoking-the-fit-method-and-passing-the" class="headerlink" title="We can invoke 1000 training steps by invoking the fit method and passing the"></a>We can invoke 1000 training steps by invoking the <code>fit</code> method and passing the</h1><h1 id="training-data-set"><a href="#training-data-set" class="headerlink" title="training data set."></a>training data set.</h1><p>estimator.fit(input_fn=input_fn, steps=1000)</p>
+<h1 id="Here-we-evaluate-how-well-our-model-did-In-a-real-example-we-would-want"><a href="#Here-we-evaluate-how-well-our-model-did-In-a-real-example-we-would-want" class="headerlink" title="Here we evaluate how well our model did. In a real example, we would want"></a>Here we evaluate how well our model did. In a real example, we would want</h1><h1 id="to-use-a-separate-validation-and-testing-data-set-to-avoid-overfitting"><a href="#to-use-a-separate-validation-and-testing-data-set-to-avoid-overfitting" class="headerlink" title="to use a separate validation and testing data set to avoid overfitting."></a>to use a separate validation and testing data set to avoid overfitting.</h1><p>print(estimator.evaluate(input_fn=input_fn))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 自定义模型</span><br><span class="line">tf.contrib.learn没有限制你使用它的预定义模型，假设我们想创建自定义的模型，我们仍能够在tf.contrib.learn保持对数据集、攻击、训练等的高级抽象。我们将展示用底层API实现等价模型线性回归。</span><br><span class="line"></span><br><span class="line">为了定制tf.contrib.learn上的自定义模型，我们需要使用tf.contrib.learn.Estimator。tf.contrib.learn.LinearRegressor也是tf.contrib.learn.Estimator的一个子类。</span><br></pre></td></tr></table></figure></p>
+<p>import numpy as np<br>import tensorflow as tf</p>
+<h1 id="Declare-list-of-features-we-only-have-one-real-valued-feature"><a href="#Declare-list-of-features-we-only-have-one-real-valued-feature" class="headerlink" title="Declare list of features, we only have one real-valued feature"></a>Declare list of features, we only have one real-valued feature</h1><p>def model(features, labels, mode):</p>
+<h1 id="Build-a-linear-model-and-predict-values"><a href="#Build-a-linear-model-and-predict-values" class="headerlink" title="Build a linear model and predict values"></a>Build a linear model and predict values</h1><p>  W = tf.get_variable(“W”, [1], dtype=tf.float64)<br>  b = tf.get_variable(“b”, [1], dtype=tf.float64)<br>  y = W*features[‘x’] + b</p>
+<h1 id="Loss-sub-graph"><a href="#Loss-sub-graph" class="headerlink" title="Loss sub-graph"></a>Loss sub-graph</h1><p>  loss = tf.reduce_sum(tf.square(y - labels))</p>
+<h1 id="Training-sub-graph"><a href="#Training-sub-graph" class="headerlink" title="Training sub-graph"></a>Training sub-graph</h1><p>  global_step = tf.train.get_global_step()<br>  optimizer = tf.train.GradientDescentOptimizer(0.01)<br>  train = tf.group(optimizer.minimize(loss),<br>                   tf.assign_add(global_step, 1))</p>
+<h1 id="ModelFnOps-connects-subgraphs-we-built-to-the"><a href="#ModelFnOps-connects-subgraphs-we-built-to-the" class="headerlink" title="ModelFnOps connects subgraphs we built to the"></a>ModelFnOps connects subgraphs we built to the</h1><h1 id="appropriate-functionality"><a href="#appropriate-functionality" class="headerlink" title="appropriate functionality."></a>appropriate functionality.</h1><p>  return tf.contrib.learn.ModelFnOps(<br>      mode=mode, predictions=y,<br>      loss=loss,<br>      train_op=train)</p>
+<p>estimator = tf.contrib.learn.Estimator(model_fn=model)</p>
+<h1 id="define-our-data-set"><a href="#define-our-data-set" class="headerlink" title="define our data set"></a>define our data set</h1><p>x = np.array([1., 2., 3., 4.])<br>y = np.array([0., -1., -2., -3.])<br>input_fn = tf.contrib.learn.io.numpy_input_fn({“x”: x}, y, 4, num_epochs=1000)</p>
+<h1 id="train"><a href="#train" class="headerlink" title="train"></a>train</h1><p>estimator.fit(input_fn=input_fn, steps=1000)</p>
+<h1 id="evaluate-our-model"><a href="#evaluate-our-model" class="headerlink" title="evaluate our model"></a>evaluate our model</h1><p>print(estimator.evaluate(input_fn=input_fn, steps=10))<br><code>`</code><br>定制的model函数与底层API的训练循环模型非常相似！</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
