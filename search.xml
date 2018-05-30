@@ -4,6 +4,9 @@
     <title><![CDATA[NER中的HMM模型]]></title>
     <url>%2F2018%2F05%2F30%2FNER%E4%B8%AD%E7%9A%84HMM%E6%A8%A1%E5%9E%8B%2F</url>
     <content type="text"><![CDATA[用隐含马尔可夫模型求解命名实体识别问题 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观测信号o1,]]></content>
+      <categories>
+        <category>NLP</category>
+      </categories>
       <tags>
         <tag>HMM</tag>
         <tag>NER</tag>
