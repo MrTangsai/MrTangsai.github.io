@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="&amp;lt;script type=”text/javascript”src=”http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;quot;&amp;gt;用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可">
+<meta name="description" content="用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观">
 <meta name="keywords" content="HMM,NER">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HMM模型和他的python应用">
 <meta property="og:url" content="http://yoursite.com/2018/05/30/HMM模型和他的python应用/index.html">
 <meta property="og:site_name" content="格物 致知">
-<meta property="og:description" content="&amp;lt;script type=”text/javascript”src=”http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;quot;&amp;gt;用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可">
+<meta property="og:description" content="用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-07T15:48:26.653Z">
+<meta property="og:updated_time" content="2018-06-07T16:26:08.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HMM模型和他的python应用">
-<meta name="twitter:description" content="&amp;lt;script type=”text/javascript”src=”http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;quot;&amp;gt;用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可">
+<meta name="twitter:description" content="用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观">
 
 
 
@@ -352,9 +352,10 @@
       
 
       
-        <p>&lt;script type=”text/javascript”src=”<a href="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;" target="_blank" rel="noopener">http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;</a><br>用隐含马尔可夫模型和他的应用<br>对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。</p>
+        <p>用隐含马尔可夫模型和他的应用<br>对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。</p>
 <h2 id="模型简介"><a href="#模型简介" class="headerlink" title="模型简介"></a>模型简介</h2><p>HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观测信号o<sub>1</sub>,o<sub>2</sub>,o<sub>3</sub>,…来推测信号源发送的信息s<sub>1</sub>,s<sub>2</sub>,s<sub>3</sub>,…?当然是求条件概率了。</p>
-<p>$<br>J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha} \text {，行内公式示例}<br>$</p>
+<p>$$<br>s_1,s_2,s_3,…=ArgMax_{s_1,s_2,s_3,…}{P(s_1,s_2,s_3,…|o_1,o_2,o_3,…)}<br>$$<br>根据贝叶斯公式，上述公式也等价于</p>
+<p>$$<br>\frac{P(o_1,o_2,o_3,…|s_1,s_2,s_3,…)\cdot{P(s_1,s_2,s_3,…)}}{P(o_1,o_2,o_3,…)}<br>$$<br>公式中，分母可以看做是常数，因此对于通信问题求状态信息概率的问题可以看作是求联合概率$P(o_1,o_2,o_3,…|s_1,s_2,s_3,…)\cdot{P(s_1,s_2,s_3,…)}$</p>
 
       
     </div>
