@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="用隐含马尔可夫模型求解命名实体识别问题 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观测信号o1,">
+<meta name="description" content="用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观">
 <meta name="keywords" content="HMM,NER">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NER中的HMM模型">
-<meta property="og:url" content="http://yoursite.com/2018/05/30/NER中的HMM模型/index.html">
+<meta property="og:title" content="HMM模型和他的python应用">
+<meta property="og:url" content="http://yoursite.com/2018/05/30/HMM模型和他的python应用/index.html">
 <meta property="og:site_name" content="格物 致知">
-<meta property="og:description" content="用隐含马尔可夫模型求解命名实体识别问题 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观测信号o1,">
+<meta property="og:description" content="用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-30T15:44:38.053Z">
+<meta property="og:updated_time" content="2018-06-07T13:00:22.157Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NER中的HMM模型">
-<meta name="twitter:description" content="用隐含马尔可夫模型求解命名实体识别问题 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观测信号o1,">
+<meta name="twitter:title" content="HMM模型和他的python应用">
+<meta name="twitter:description" content="用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/30/NER中的HMM模型/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/30/HMM模型和他的python应用/"/>
 
 
 
 
 
-  <title>NER中的HMM模型 | 格物 致知</title>
+  <title>HMM模型和他的python应用 | 格物 致知</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/NER中的HMM模型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/HMM模型和他的python应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="唐 赛">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">NER中的HMM模型</h1>
+          <h1 class="post-title" itemprop="name headline">HMM模型和他的python应用</h1>
         
 
         <div class="post-meta">
@@ -352,8 +352,8 @@
       
 
       
-        <p>用隐含马尔可夫模型求解命名实体识别问题</p>
-<h2 id="模型简介"><a href="#模型简介" class="headerlink" title="模型简介"></a>模型简介</h2><p>HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观测信号o<sub>1<sub>,</sub></sub></p>
+        <p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><br>用隐含马尔可夫模型和他的应用<br>对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。</p>
+<h2 id="模型简介"><a href="#模型简介" class="headerlink" title="模型简介"></a>模型简介</h2><p>HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观测信号o<sub>1</sub>,o<sub>2</sub>,o<sub>3</sub>,…来推测信号源发送的信息s<sub>1</sub>,s<sub>2</sub>,s<sub>3</sub>,…?当然是求条件概率了。<br>$$ s_1,s_2,s_3,…=ArgMax_{s_1,s_2,s_3,…}P(s_1,s_2,s_3,…|o_1,o_2,o_3,…) $$</p>
 
       
     </div>
