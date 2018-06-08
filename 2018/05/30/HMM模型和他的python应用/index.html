@@ -88,7 +88,7 @@
 <meta property="og:description" content="用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/05/30/img/马尔可夫链.png">
-<meta property="og:updated_time" content="2018-06-08T19:10:35.288Z">
+<meta property="og:updated_time" content="2018-06-08T19:14:36.383Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HMM模型和他的python应用">
 <meta name="twitter:description" content="用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观">
@@ -373,28 +373,29 @@
 <p>$$<br>P(o,s|\lambda)=\pi_{i_1}b_{i_1o_1}a_{i_1i_2}b_{i_2o_2}…a_{i_{T-1}}b_{i_To_T}<br>$$</p>
 <p>围绕HMM模型有三个基本问题，不同的任务有不同的算法求解。</p>
 <h4 id="1-给定模型计算输出序列概率"><a href="#1-给定模型计算输出序列概率" class="headerlink" title="1. 给定模型计算输出序列概率"></a>1. 给定模型计算输出序列概率</h4><h5 id="1-1-暴力计算"><a href="#1-1-暴力计算" class="headerlink" title="1.1 暴力计算"></a>1.1 暴力计算</h5><p>列举出所有可能的状态序列，计算每个序列的联合概率$P(o,s|\lambda)$,然后全部相加，得到观测序列的概率$\sum_i{P(o,s|\lambda)}$。这样的计算方式时间复杂度高。</p>
-<h5 id="1-2-前向算法"><a href="#1-2-前向算法" class="headerlink" title="1.2 前向算法"></a>1.2 前向算法</h5><!-- 引入前向变量$\alpha_t(i)$,表示在t时刻状态为i时，输出序列为$o_1,o_2,...,o_T$的概率。这样，$P(o)=\alpha_t(1)+\alpha_t(2)+...+\alpha_t(i)$.而t时刻的前向变量可以通过t-1时刻的前向变量计算得到，以此类推，初始化计算出第一次的前向变量时，通过迭代最终可以计算出观察序列的概率。 -->
-<!-- $$
-\alpha_t(i+1)=(\sum_{i=1}^{N}{\alpha_t(i)})b_j{(o_{t+1}),1\leq{t}\leq{T-1}
-$$
-######1.3 后向算法
-跟前向算法差不多，引入了后向变量$\beta_t(i)$ -->
-<!-- 
-#####2. 给定模型和特定观察序列求概率最大的状态序列
-###### 维特比算法
+<h5 id="1-2-前向算法"><a href="#1-2-前向算法" class="headerlink" title="1.2 前向算法"></a>1.2 前向算法</h5><p>引入前向变量$\alpha_t(i)$,表示在t时刻状态为i时，输出序列为$o_1,o_2,…,o_T$的概率。这样，$P(o)=\alpha_t(1)+\alpha_t(2)+…+\alpha_t(i)$.而t时刻的前向变量可以通过t-1时刻的前向变量计算得到，以此类推，初始化计算出第一次的前向变量时，通过迭代最终可以计算出观察序列的概率。</p>
+<p>$$<br>\alpha_t(i+1)=(\sum_{i=1}^{N}{\alpha_t(i)})b_j{(o_{t+1})},1\leq{t}\leq{T-1}<br>$$</p>
+<h5 id="1-3-后向算法"><a href="#1-3-后向算法" class="headerlink" title="1.3 后向算法"></a>1.3 后向算法</h5><p>跟前向算法差不多，引入了后向变量$\beta_t(i)$</p>
+<!-- #### 2. 给定模型和特定观察序列求概率最大的状态序列
+
+##### 维特比算法
 可以将此类问题看作是动态规划，用维特比算法求解。
 在状态序列中，每一时刻的状态都有N种取值，假设序列长度为T，则一共有$N^T$种可能的状态序列，长序列时很难使用暴力计算来求解最大概率的路径。
 维特比算法认为概率最大的路径P经过序列上的任意时刻，从起始点到该时刻的这段路径一定也是到当前时刻的概率最大的路径，因此维特比从第一个时刻开始，依次考察路径的概率，计算得到的概率最大的路径经过的状态即是这一时刻的状态的取值。因此，每一步计算的复杂度都和相邻两个时刻$S_i$和$S_i+1$各自的节点数目$n_i$,$n_i+1$的乘积成正比，即$O(n_i\cdot{n_{i+1}})$.
-#####3. 估计模型参数
-######3.1 已知观察序列和对应的状态序列
+
+#### 3. 估计模型参数
+
+##### 3.1 已知观察序列和对应的状态序列
 观察序列和状态序列都已知的情况下，很好解决。利用样本中出现的各个取值的次数可以计算出大致的模型参数
 $$
 P(o_t|s_t)\approx\frac{\#(o_t,s_t)}{\#(s_t)}
 $$
+
 $$
 P(s_t|s_{t-1})\approx\frac{\#(s_t,s_{t-1})}{\#(s_{t-1})}
 $$
-######3.2 已知观察序列
+
+##### 3.2 已知观察序列
 在已知观察序列未知状态序列的情况下，可以使用鲍姆韦尔奇算法求解，通过期望最大化（EM）算法进行迭代。
 首先找到一组能够产生输出序列O的模型参数，根据模型参数计算当前概率最大的状态序列的可能值并作为标注数据，按照3.1的方式重新计算模型参数，再次寻找概率最大的状态序列，一直迭代，直至模型性能收敛。 -->
       
@@ -586,7 +587,7 @@ $$
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型简介"><span class="nav-number">1.</span> <span class="nav-text">模型简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-给定模型计算输出序列概率"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. 给定模型计算输出序列概率</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-暴力计算"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1.1 暴力计算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-前向算法"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">1.2 前向算法</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型简介"><span class="nav-number">1.</span> <span class="nav-text">模型简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-给定模型计算输出序列概率"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. 给定模型计算输出序列概率</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-暴力计算"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1.1 暴力计算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-前向算法"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">1.2 前向算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-后向算法"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">1.3 后向算法</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
