@@ -345,7 +345,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  315 字
+                  505 字
                 </span>
               
 
@@ -361,7 +361,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -406,7 +406,12 @@
 <p>operations中需要改变张量本身的值，可以在operation后加<em>,比如`x.copy</em>(y), x.t_()`</p>
 </blockquote>
 <p>索引:<code>print(x[:, 1])</code><br>改变维度:<code>x.view(-1, 8)</code></p>
-<h3 id="和Numpy的联系"><a href="#和Numpy的联系" class="headerlink" title="和Numpy的联系"></a>和Numpy的联系</h3>
+<h3 id="和Numpy的联系"><a href="#和Numpy的联系" class="headerlink" title="和Numpy的联系"></a>和Numpy的联系</h3><p>torch tensor 和 numpy array之间可以进行相互转换，他们会共享内存位置，改变一个，另一个会跟着改变。</p>
+<h4 id="tensor-to-array"><a href="#tensor-to-array" class="headerlink" title="tensor to array"></a>tensor to array</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = torch.ones(<span class="number">5</span>)</span><br><span class="line">b = a.numpy()</span><br><span class="line">a.add_(<span class="number">1</span>)</span><br><span class="line">print(a,b)</span><br></pre></td></tr></table></figure>
+<h4 id="array-to-tensor"><a href="#array-to-tensor" class="headerlink" title="array to tensor"></a>array to tensor</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.ones(<span class="number">5</span>)</span><br><span class="line">b = torch.from_numpy(a)</span><br><span class="line">np.add(a, <span class="number">1</span>, out=a)</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
+<h3 id="CUDA-Tensors"><a href="#CUDA-Tensors" class="headerlink" title="CUDA Tensors"></a>CUDA Tensors</h3><p>tensor可以使用<code>.to</code>方法将其移动到任何设备。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># let us run this cell only if CUDA is available</span></span><br><span class="line"><span class="comment"># We will use ``torch.device`` objects to move tensors in and out of GPU</span></span><br><span class="line"><span class="keyword">if</span> torch.cuda.is_available():</span><br><span class="line">    device = torch.device(<span class="string">"cuda"</span>)          <span class="comment"># a CUDA device object</span></span><br><span class="line">    y = torch.ones_like(x, device=device)  <span class="comment"># directly create a tensor on GPU</span></span><br><span class="line">    x = x.to(device)                       <span class="comment"># or just use strings ``.to("cuda")``</span></span><br><span class="line">    z = x + y</span><br><span class="line">    print(z)</span><br><span class="line">    print(z.to(<span class="string">"cpu"</span>, torch.double))       <span class="comment"># ``.to`` can also change dtype together!</span></span><br></pre></td></tr></table></figure>
+
           
         
       
