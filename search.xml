@@ -3,7 +3,10 @@
   <entry>
     <title><![CDATA[pytorch0.4的概述]]></title>
     <url>%2F2018%2F06%2F09%2Fpytorch0-4%E7%9A%84%E6%A6%82%E8%BF%B0%2F</url>
-    <content type="text"><![CDATA[pytorch0.4支持了Windows系统的开发，在首页即可使用pip安装pytorch和torchvision。说白了，以下文字就是来自官方文档60分钟入门的简要翻译. pytorch是啥python的科学计算库，使得NumPy可用于GPU计算，并提供了一个深度学习平台使得灵活性和速度最大化 入门Tensors(张量)Tensors与NumPy的ndarrays类似，另外可以使用GPU加速计算 未初始化的5*3的矩阵:x = torch.empty(5, 3)随机初始化的矩阵:x = torch.rand(5, 3)全零矩阵,定义数据类型:x = torch.zeros(5, 3, dtype=torch.long)由数据构造矩阵:x = torch.tensor([5.5, 3])由已存在张量构造矩阵，性质与之前张量一致:12x = x.new_ones(5, 3, dtype=torch.double) x = torch.randn_like(x, dtype=torch.float) 获取维度:print(x.size()) Operations有多种operation的格式，这里考虑加法 12y = torch.rand(5, 3)print(x + y) 1print(torch.add(x, y)) 123result = torch.empty(5, 3)torch.add(x, y, out=result)print(result) 4.123# adds x to yy.add_(x)print(y) operations中需要改变张量本身的值，可以在operation后加,比如`x.copy(y), x.t_()` 索引:print(x[:, 1])改变维度:x.view(-1, 8) 和Numpy的联系]]></content>
+    <content type="text"><![CDATA[pytorch0.4支持了Windows系统的开发，在首页即可使用pip安装pytorch和torchvision。说白了，以下文字就是来自官方文档60分钟入门的简要翻译. pytorch是啥python的科学计算库，使得NumPy可用于GPU计算，并提供了一个深度学习平台使得灵活性和速度最大化 入门Tensors(张量)Tensors与NumPy的ndarrays类似，另外可以使用GPU加速计算 未初始化的5*3的矩阵:x = torch.empty(5, 3)随机初始化的矩阵:x = torch.rand(5, 3)全零矩阵,定义数据类型:x = torch.zeros(5, 3, dtype=torch.long)由数据构造矩阵:x = torch.tensor([5.5, 3])由已存在张量构造矩阵，性质与之前张量一致:12x = x.new_ones(5, 3, dtype=torch.double) x = torch.randn_like(x, dtype=torch.float) 获取维度:print(x.size()) Operations有多种operation的格式，这里考虑加法 12y = torch.rand(5, 3)print(x + y) 1print(torch.add(x, y)) 123result = torch.empty(5, 3)torch.add(x, y, out=result)print(result) 4. 123# adds x to yy.add_(x)print(y) operations中需要改变张量本身的值，可以在operation后加,比如`x.copy(y), x.t_()` 索引:print(x[:, 1])改变维度:x.view(-1, 8) 和Numpy的联系]]></content>
+      <categories>
+        <category>pytorch</category>
+      </categories>
       <tags>
         <tag>pytorch</tag>
       </tags>
