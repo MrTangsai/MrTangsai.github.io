@@ -88,7 +88,7 @@
 <meta property="og:description" content="用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/05/30/HMM模型和他的python应用/img/马尔可夫链.png">
-<meta property="og:updated_time" content="2018-06-08T19:31:03.533Z">
+<meta property="og:updated_time" content="2018-06-09T06:57:23.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HMM模型和他的python应用">
 <meta name="twitter:description" content="用隐含马尔可夫模型和他的应用对于序列标注问题，目前主流的方法是条件随机场和长短期记忆网络，而一些简单的任务如分词、词性标注和命名实体识别，应用隐马尔可夫模型能够快速同时高效地进行学习。 模型简介HMM被认为是解决大多数NLP问题最为快速有效的问题。将语言模型与通信问题联系起来，通信的本质是编解码和传输的过程。一个典型的通信系统包括信息源、信道、接收者、信息、上下文和编码。通信中，如何根据接收端的观">
@@ -381,6 +381,68 @@
 <p>$$<br>P(o_t|s_t)\approx\frac{(o_t,s_t)}{(s_t)}<br>$$</p>
 <p>$$<br>P(s_t|s_{t-1})\approx\frac{(s_t,s_{t-1})}{(s_{t-1})}<br>$$</p>
 <h4 id="已知观察序列"><a href="#已知观察序列" class="headerlink" title="已知观察序列"></a>已知观察序列</h4><p>在已知观察序列未知状态序列的情况下，可以使用鲍姆韦尔奇算法求解，通过期望最大化（EM）算法进行迭代。<br>首先找到一组能够产生输出序列O的模型参数，根据模型参数计算当前概率最大的状态序列的可能值并作为标注数据，按照3.1的方式重新计算模型参数，再次寻找概率最大的状态序列，一直迭代，直至模型性能收敛。</p>
+<h2 id="hmmlearn"><a href="#hmmlearn" class="headerlink" title="hmmlearn"></a>hmmlearn</h2><p>hmmlearn是用于学习HMM模型的python库，与scikit-learn的API相似，依赖于scikit-learn,NumPy,SciPy,matplotlib等库。在<a href="http://hmmlearn.readthedocs.io/en/latest/tutorial.html" target="_blank" rel="noopener">官方文档</a>中详细描述了hmmlearn中API的使用和一些实例。<br>hmmlearn的安装和其他模块一样。<br><code>pip install hmmlearn</code><br>hmmlearn实现了三种算法的HMM模型，如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">hmm.GaussianHMM</td>
+<td style="text-align:left">假设观察量呈高斯分布</td>
+</tr>
+<tr>
+<td style="text-align:left">hmm.GMMHMM</td>
+<td style="text-align:left">假设观察量呈高斯混合分布</td>
+</tr>
+<tr>
+<td style="text-align:left">hmm.MultinomialHMM</td>
+<td style="text-align:left">观察量离散分布</td>
+</tr>
+</tbody>
+</table>
+<p>针对观测序列为连续量的情况，可以使用前两种类，假设观察量呈现高斯分布或高斯混合分布，模型不复杂时使用第一种就足够了。</p>
+<h3 id="构建HMM，产生样本"><a href="#构建HMM，产生样本" class="headerlink" title="构建HMM，产生样本"></a>构建HMM，产生样本</h3><p>通过传递参数，可以构建HMM对象。<br>在MultionalHMM类中，主要参数如下</p>
+<p><code>class hmmlearn.hmm.MultinomialHMM(n_components=1, startprob_prior=1.0, transmat_prior=1.0, algorithm=&#39;viterbi&#39;, random_state=None, n_iter=10, tol=0.01, verbose=False, params=&#39;ste&#39;, init_params=&#39;ste&#39;)</code></p>
+<blockquote>
+<p>n_components: 状态数量N<br>algorithm: 可选’viterbi’或’map’<br>n_iter: 模型EM迭代的最大次数<br>tol: 收敛阈值，最大似然增益小于tol时停止EM迭代<br>verbose： verbose=True时打印每次迭代的收敛程度<br>params: 控制哪些参数需要在训练中更新，’ste’的组合<br>init_params: 哪些参数需要初始化</p>
+</blockquote>
+<p>MultinomialHMM类的属性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">attribute</th>
+<th style="text-align:left">describe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">n_features</td>
+<td style="text-align:left">模型观察量的数量</td>
+</tr>
+<tr>
+<td style="text-align:left">monitor_</td>
+<td style="text-align:left">检验EM收敛的类</td>
+</tr>
+<tr>
+<td style="text-align:left">transmat_</td>
+<td style="text-align:left">状态的转移概率矩阵</td>
+</tr>
+<tr>
+<td style="text-align:left">startprob_</td>
+<td style="text-align:left">初始概率分布</td>
+</tr>
+<tr>
+<td style="text-align:left">emissionprob_</td>
+<td style="text-align:left">生成概率矩阵</td>
+</tr>
+</tbody>
+</table>
+<p>在GaussianHMM类中，主要参数如下：</p>
+<p><code>class hmmlearn.hmm.GaussianHMM(n_components=1, covariance_type=&#39;diag&#39;, min_covar=0.001, startprob_prior=1.0, transmat_prior=1.0, means_prior=0, means_weight=0, covars_prior=0.01, covars_weight=1, algorithm=&#39;viterbi&#39;, random_state=None, n_iter=10, tol=0.01, verbose=False, params=&#39;stmc&#39;, init_params=&#39;stmc&#39;)</code></p>
 
       
     </div>
@@ -571,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型简介"><span class="nav-number">1.</span> <span class="nav-text">模型简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#给定模型计算输出序列概率"><span class="nav-number">1.1.</span> <span class="nav-text">给定模型计算输出序列概率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#暴力计算"><span class="nav-number">1.1.1.</span> <span class="nav-text">暴力计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前向算法"><span class="nav-number">1.1.2.</span> <span class="nav-text">前向算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后向算法"><span class="nav-number">1.1.3.</span> <span class="nav-text">后向算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给定模型和特定观察序列求概率最大的状态序列"><span class="nav-number">1.2.</span> <span class="nav-text">给定模型和特定观察序列求概率最大的状态序列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#维特比算法"><span class="nav-number">1.2.1.</span> <span class="nav-text">维特比算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#估计模型参数"><span class="nav-number">1.3.</span> <span class="nav-text">估计模型参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#已知观察序列和对应的状态序列"><span class="nav-number">1.3.1.</span> <span class="nav-text">已知观察序列和对应的状态序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#已知观察序列"><span class="nav-number">1.3.2.</span> <span class="nav-text">已知观察序列</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型简介"><span class="nav-number">1.</span> <span class="nav-text">模型简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#给定模型计算输出序列概率"><span class="nav-number">1.1.</span> <span class="nav-text">给定模型计算输出序列概率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#暴力计算"><span class="nav-number">1.1.1.</span> <span class="nav-text">暴力计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前向算法"><span class="nav-number">1.1.2.</span> <span class="nav-text">前向算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后向算法"><span class="nav-number">1.1.3.</span> <span class="nav-text">后向算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给定模型和特定观察序列求概率最大的状态序列"><span class="nav-number">1.2.</span> <span class="nav-text">给定模型和特定观察序列求概率最大的状态序列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#维特比算法"><span class="nav-number">1.2.1.</span> <span class="nav-text">维特比算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#估计模型参数"><span class="nav-number">1.3.</span> <span class="nav-text">估计模型参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#已知观察序列和对应的状态序列"><span class="nav-number">1.3.1.</span> <span class="nav-text">已知观察序列和对应的状态序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#已知观察序列"><span class="nav-number">1.3.2.</span> <span class="nav-text">已知观察序列</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hmmlearn"><span class="nav-number">2.</span> <span class="nav-text">hmmlearn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建HMM，产生样本"><span class="nav-number">2.1.</span> <span class="nav-text">构建HMM，产生样本</span></a></li></ol></li></ol></div>
             
 
           </div>
