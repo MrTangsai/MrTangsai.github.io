@@ -88,10 +88,12 @@
 <meta property="og:site_name" content="格物 致知">
 <meta property="og:description" content="pytorch0.4支持了Windows系统的开发，在首页即可使用pip安装pytorch和torchvision。说白了，以下文字就是来自官方文档60分钟入门的简要翻译. pytorch是啥python的科学计算库，使得NumPy可用于GPU计算，并提供了一个深度学习平台使得灵活性和速度最大化 入门Tensors(张量)Tensors与NumPy的ndarrays类似，另外可以使用GPU加速计算">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-10T07:22:39.472Z">
+<meta property="og:image" content="https://pytorch.org/tutorials/_images/mnist.png">
+<meta property="og:updated_time" content="2018-06-10T07:35:08.887Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pytorch0.4的概述">
 <meta name="twitter:description" content="pytorch0.4支持了Windows系统的开发，在首页即可使用pip安装pytorch和torchvision。说白了，以下文字就是来自官方文档60分钟入门的简要翻译. pytorch是啥python的科学计算库，使得NumPy可用于GPU计算，并提供了一个深度学习平台使得灵活性和速度最大化 入门Tensors(张量)Tensors与NumPy的ndarrays类似，另外可以使用GPU加速计算">
+<meta name="twitter:image" content="https://pytorch.org/tutorials/_images/mnist.png">
 
 
 
@@ -347,7 +349,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1,012 字
+                  1,046 字
                 </span>
               
 
@@ -415,6 +417,7 @@
 <h3 id="Gradients"><a href="#Gradients" class="headerlink" title="Gradients"></a>Gradients</h3><p>反向传播时，由于<code>out</code>是一个标量，<code>out.backward()</code>等效于<code>out.backward(torch.tensor(1))</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">out.backward()</span><br><span class="line">print(x.grad)</span><br><span class="line"></span><br><span class="line">x = torch.randn(<span class="number">3</span>, requires_grad=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">y = x * <span class="number">2</span></span><br><span class="line"><span class="keyword">while</span> y.data.norm() &lt; <span class="number">1000</span>:</span><br><span class="line">    y = y * <span class="number">2</span></span><br><span class="line"></span><br><span class="line">print(y)</span><br><span class="line"></span><br><span class="line">gradients = torch.tensor([<span class="number">0.1</span>, <span class="number">1.0</span>, <span class="number">0.0001</span>], dtype=torch.float)</span><br><span class="line">y.backward(gradients)</span><br><span class="line"></span><br><span class="line">print(x.grad)</span><br><span class="line"></span><br><span class="line">print(x.requires_grad)</span><br><span class="line">print((x ** <span class="number">2</span>).requires_grad)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    print((x ** <span class="number">2</span>).requires_grad)</span><br></pre></td></tr></table></figure>
 <h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><p>神经网络可以用<code>torch.nn</code>构建。<code>nn</code>依赖于<code>autograd</code>定义模型和求导，<code>nn.Module</code>定义网络层，方法<code>forward(input)</code>返回网络输出。</p>
+<p>举例说明，如下是对数字图片分类的卷积网络架构。<br><img src="https://pytorch.org/tutorials/_images/mnist.png" alt=""><br>这是一个简单的前馈神经网络，</p>
 
       
     </div>
